@@ -1,0 +1,42 @@
+<!--pages/LineCal/LineCal.wxml-->
+<view class="horviews" style="height:75%">
+    <textarea class="c_textarea" value="{{values}}" placeholder="请输入读数，每行一个" style="width:50%; height:100%" bindinput="dataInput"/>
+    <view class="verviews" style="width:50%; height:100%">
+      <view class="verviews" style="width:100%; height:75%">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+            <text>{{item.value}}</text>
+          </radio>
+        </radio-group>
+        <view class="page-section" style="padding-left:2px">
+          <view class="weui-cells__title">仪器精度(mm/m)</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input" style="background:{{bk_yqjd}}">
+              <input class="weui-input" maxlength="8" type="digit" disabled="{{!bEnable_yqjd}}" value="{{yqjd}}" bindinput="jdInput" />
+            </view>
+          </view>
+        </view>
+        <view class="page-section" style="padding-left:2px">
+          <view class="weui-cells__title">桥板跨度(mm)</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <input class="weui-input" maxlength="8" type="digit" value="{{qbkd}}" bindinput="qbInput" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="verviews" style="width:100%; height:25%; justify-content: space-between;">
+        <button style="width:95%" type="primary" disabled="{{!bCalBtnEnable}}" bindtap="calLine">计算</button>
+        <button style="width:95%" type="default" bindtap="savePic">保存</button>
+      </view>
+    </view>
+  </view>
+
+<!-- 签名画布 -->
+  <canvas
+    id="canvas"
+    canvas-id="canvas"
+    style="width:750rpx; height:320rpx; margin-top:5px; background:#FFFFA0;"
+    disable-scroll="true"
+  ></canvas>
+  
