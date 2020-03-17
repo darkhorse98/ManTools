@@ -1,6 +1,6 @@
 <!--pages/LineCal/LineCal.wxml-->
 <view class="horviews" style="height:75%">
-    <textarea class="c_textarea" value="{{values}}" placeholder="请输入读数，每行一个" style="width:50%; height:100%" bindinput="dataInput"/>
+    <textarea class="c_textarea" value="{{values}}" show-confirm-bar="{{false}}" placeholder="请输入读数，每行一个" style="width:50%; height:100%" bindinput="dataInput"/>
     <view class="verviews" style="width:50%; height:100%">
       <view class="verviews" style="width:100%; height:75%">
         <radio-group class="radio-group" bindchange="radioChange">
